@@ -38,10 +38,19 @@
                         <td>{{ $item->title }}</td>
                         <td>Tsh: {{ $item->price }}</td>
                         <td>{{ $item->description }}</td>
-                        <td>
-                            <span><a href="" class="btn btn-warning" ><i class="fa fa-edit "></i></a></span>
-                            <span><a href=""  class="btn btn-danger" ><i class="fa fa-trash"></i></a></span>
-
+                        <td >
+                            <span>
+                                <a href="{{ route('foods.edit', $item->id) }}" class="btn btn-warning">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </span>
+                            <form action="{{ route('foods.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -65,29 +65,48 @@ public function index()
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Food $food)
+    public function edit($id)
     {
         //
+        $foodId =Food::find($id);
+        return view('admin.edit', compact('foodId'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Food $food)
+    public function update(Request $request,$id)
     {
         //
+        $foodId =Food::find($id);
+         $validated = $request->validate([
+        'title'       => 'required',
+        'price'       => 'required|numeric',
+        'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'description' => 'required',
+    ]);
+
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $photoName = uniqid().'_'.time().'.'.$file->getClientOriginalExtension();
+        $destinationPath = public_path('upload/posts');
+
+        $file->move($destinationPath, $photoName);
+        $validated['image'] = $photoName;
+    }
+
+    $foodId->update($validated);
+    return redirect('foods');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Food $food)
+    public function destroy($id)
     {
         //
+        $foodId =Food::find($id);
+        $foodId->delete();
+         return redirect('foods');
     }
-
-    // public function MenuPage(){
-    //     $menu =Food::all();
-    //     return view('pages.menu', compact('menu'));
-    // }
 }
