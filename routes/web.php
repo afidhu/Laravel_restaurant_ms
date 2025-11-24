@@ -8,6 +8,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -48,6 +49,7 @@ Route::get('/redirects', [HomeController::class,'RedirectPage'])->name('redirect
 Route::post('/add-cart/{id}', [HomeController::class,'AddToCart'])->name('addtocart');
 
 
+Route::match(['get','post'], '/logout', [AuthenticatedSessionController::class, 'destroy']);
 
 Route::middleware([
     'auth:sanctum',

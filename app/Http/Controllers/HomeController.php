@@ -12,13 +12,13 @@ class HomeController extends Controller
     //
     public function  Homepage()
     {
-        $menu = Food::all();
+        $foods = Food::all();
 
         $user_id = Auth::id() ?? 0;
 
         $cartView = AddCart::where('user_id', $user_id)->count();
 
-        return view('pages.Home', compact('menu', 'cartView'));
+        return view('pages.Home', compact('foods', 'cartView'));
     }
 
     public function RedirectPage()
