@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Klassy Cafe - Restaurant HTML Template</title>
+    <title>Emasuite Restaurant</title>
 
     <!-- CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -54,7 +54,7 @@
                         <li class="scroll-to-section"><a href="#about">About</a></li>
                         <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                         <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
-                        <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+                        <!-- <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> -->
                         <li class="scroll-to-section">
                             <a href="{{route('cartview.index')}}"><i class="fa-solid fa-cart-shopping"></i>
                                 <sup class="text-danger"><b>{{ $cartView ?? 0 }}</b></sup>
@@ -87,7 +87,7 @@
             <div class="col-lg-4">
                 <div class="left-content">
                     <div class="inner-content">
-                        <h4>KlassyCafe</h4>
+                        <h4>Emasuite Restaurant</h4>
                         <h6>THE BEST EXPERIENCE</h6>
                         <div class="main-white-button scroll-to-section">
                             <a href="#reservation">Make A Reservation</a>
