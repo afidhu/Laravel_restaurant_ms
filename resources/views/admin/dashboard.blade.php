@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($food as $item)
+                            @forelse ($adminFoods as $item)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>

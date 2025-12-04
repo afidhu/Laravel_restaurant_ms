@@ -35,7 +35,7 @@ class HomeController extends Controller
             $user_id = Auth::id() ?? 0;
 
             $cartView = AddCart::where('user_id', $user_id)->count();
-            return view('pages.Home', compact('menu', 'cartView'));
+            return  redirect('/')->with(compact('menu', 'cartView'));
         }
     }
 
